@@ -1,0 +1,148 @@
+/* ==========================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================== */
+:root{
+    --navy-: hsl(233, 47%, 7%);
+    --blue: hsl(244, 37%, 16%);
+    --purple: hsl(277, 64%, 61%);
+    --white: hsl(0, 0%, 100%);
+    --white-transparent: hsla(0, 0%, 100%, 0.6);
+}
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Fonte padrão do desafio */
+}
+
+body {
+    background-color: var(--navy-); /* Azul muito escuro (fundo da tela) */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ==========================================
+   2. ESTRUTURA DO CARD (MOBILE FIRST)
+   ========================================== */
+.card-container {
+    background-color: var(--blue);
+    max-width: 375px;          /* Largura padrão para mobile */
+    border-radius: 8px;
+    overflow: hidden;          /* Garante que a imagem respeite as bordas arredondadas */
+    display: flex;
+    flex-direction: column;
+}
+
+/* ==========================================
+   3. ÁREA DA IMAGEM E EFEITO ROXO
+   ========================================== */
+.card-image {
+    position: relative;
+    background-color: var(--purple); 
+    line-height: 0;            /* Remove espaços fantasmas abaixo da imagem */
+}
+
+.card-image img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    mix-blend-mode: multiply;  /* Mescla a imagem com o fundo roxo */
+    opacity: 0.75;             /* Ajusta a intensidade do efeito */
+}
+
+/* ==========================================
+   4. CONTEÚDO TEXTUAL
+   ========================================== */
+.card-content {
+    padding: 32px 24px;
+    text-align: center;
+}
+
+.card-title {
+    color: var(--white);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+/* Cor de destaque para a palavra "insights" */
+.card-title .highlight {
+    color: var(--purple);
+}
+
+.card-description {
+    color: var(--white-transparent); 
+    font-size: 0.93rem;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+/* ==========================================
+   5. SEÇÃO DE ESTATÍSTICAS
+   ========================================== */
+.card-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 24px; /* Espaçamento entre cada bloco de estatística */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-number {
+    color: var(--white);
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: var(--white-transparent);
+    font-size: 0.75rem;
+    text-transform: uppercase; /* Deixa o texto em maiúsculo */
+    letter-spacing: 1px;       /* Espaçamento entre as letras */
+}
+
+/* ==========================================
+   6. RESPONSIVIDADE (DESKTOP)
+   ========================================== */
+@media (min-width: 900px) {
+    .card-container {
+        max-width: 1110px;
+        flex-direction: row-reverse; /* Inverte a ordem: imagem na direita, texto na esquerda */
+        align-items: center;
+    }
+
+    .card-image {
+        width: 50%;
+        height: 100%;
+    }
+
+    .card-image img {
+        height: 100%;
+    }
+
+    .card-content {
+        width: 50%;
+        padding: 72px;
+        text-align: left; /* Alinha o texto para a esquerda no desktop */
+    }
+
+    .card-title {
+        font-size: 2.25rem;
+        margin-bottom: 24px;
+    }
+
+    .card-stats {
+        flex-direction: row; /* Estatísticas ficam lado a lado */
+        justify-content: space-between;
+        margin-top: 48px;
+    }
+}
